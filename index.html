@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessus Publica – Professional Tools. Temporary Access.</title>
+
+  <style>
+    :root{
+      --bg: #fafaf8;
+      --paper: #ffffff;
+      --ink: #1f1f1f;
+      --muted: #5a5a5a;
+      --rule: #d6d6d2;
+      --rule-soft: #e7e7e3;
+      --panel: #f3f3ef;
+      --panel2: #f8f8f6;
+      --accent: #3a3a3a;
+      --shadow: 0 12px 35px rgba(0,0,0,0.06);
+      --radius: 14px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body{
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+      color: var(--ink);
+      background: radial-gradient(1200px 800px at 20% 0%, #ffffff 0%, var(--bg) 60%);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container{
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 70px 26px;
+    }
+
+    /* Page frame (subtle) */
+    .page{
+      background: var(--paper);
+      border: 1px solid var(--rule-soft);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 56px 44px;
+    }
+
+    header{
+      text-align: center;
+      padding-bottom: 34px;
+      margin-bottom: 44px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    h1{
+      font-size: 2.55em;
+      font-weight: 400;
+      letter-spacing: 2.4px;
+      color: #161616;
+      margin-bottom: 16px;
+    }
+
+    .pronounce{
+      font-size: 1.05em;
+      color: #4a4a4a;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+
+    .tagline{
+      font-size: 1.12em;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* Section rhythm */
+    section{
+      padding: 34px 0;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    section:last-of-type{
+      border-bottom: none;
+      padding-bottom: 10px;
+    }
+
+    h2{
+      font-size: 1.75em;
+      font-weight: 400;
+      margin-bottom: 18px;
+      color: #181818;
+      border-left: 4px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    p{
+      margin-bottom: 16px;
+      font-size: 1.05em;
+    }
+    p:last-child{ margin-bottom: 0; }
+
+    /* Panels */
+    .highlight-box{
+      background: var(--panel);
+      border: 1px solid var(--rule-soft);
+      border-left: 4px solid #6a6a6a;
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin: 18px 0 22px;
+    }
+    .highlight-box p{ margin-bottom: 10px; }
+    .highlight-box p:last-child{ margin-bottom: 0; }
+
+    .quote{
+      font-style: italic;
+      color: #404040;
+      padding: 14px 18px;
+      border-left: 4px solid #c0c0c0;
+      background: #fbfbfa;
+      border-radius: 10px;
+      margin: 16px 0 18px;
+    }
+
+    /* Lists */
+    ul{
+      list-style: none;
+      margin: 12px 0 18px;
+      padding-left: 2px;
+    }
+    ul li{
+      padding-left: 22px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    ul li::before{
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #2f2f2f;
+    }
+
+    .emphasis{
+      font-weight: 600;
+      color: #151515;
+    }
+
+    .not-list{
+      background: var(--panel2);
+      border: 1px solid var(--rule-soft);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 14px 0 18px;
+    }
+
+    /* Outcomes */
+    .outcomes{ margin-top: 8px; }
+    .outcome-block{
+      margin: 18px 0;
+      padding: 14px 16px;
+      border: 1px solid var(--rule-soft);
+      border-radius: 12px;
+      background: #fcfcfb;
+    }
+    .outcome-title{
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    /* Contact */
+    .contact-box{
+      background: #f0f0ec;
+      border: 1px solid var(--rule-soft);
+      border-radius: 14px;
+      padding: 22px 20px;
+      margin: 18px 0;
+      text-align: center;
+    }
+
+    .email{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      margin: 12px 0 8px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      font-family: "Courier New", monospace;
+      font-size: 1.05em;
+      color: #1f1f1f;
+      text-decoration: none;
+    }
+    .email:hover{
+      border-color: #bdbdb8;
+      background: #ffffff;
+    }
+
+    .small-note{
+      color: #5f5f5f;
+      font-size: 0.98em;
+      margin-top: 10px;
+    }
+
+    footer{
+      text-align: center;
+      margin-top: 44px;
+      padding-top: 26px;
+      border-top: 1px solid var(--rule);
+      color: #6a6a6a;
+      font-size: 0.95em;
+    }
+    footer p{ margin-bottom: 6px; }
+
+    /* Mobile */
+    @media (max-width: 768px){
+      .container{ padding: 42px 16px; }
+      .page{ padding: 34px 18px; }
+      h1{ font-size: 2.05em; }
+      h2{ font-size: 1.45em; }
+      .tagline{ font-size: 1.02em; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="page">
+
+      <header>
+        <h1>ACCESSUS PUBLICA</h1>
+        <div class="pronounce">Access. Us. Publica.</div>
+        <div class="tagline">
+          Professional tools. Temporary access.<br />
+          No facility. No membership. No permanence.
+        </div>
+      </header>
+
+      <section>
+        <h2>What This Is</h2>
+        <p>Accessus Publica provides temporary, paid access to professional-grade tools that are otherwise difficult to own, store, or justify full-time.</p>
+        <p>We start with one asset.</p>
+        <p>One geography.</p>
+        <p>One question.</p>
+        <p>
+          This is not a marketplace.<br />
+          This is not a studio.<br />
+          This is not instruction or community programming.
+        </p>
+        <p><span class="emphasis">This is access.</span></p>
+      </section>
+
+      <section>
+        <h2>Phase 0 Pilot</h2>
+        <div class="highlight-box">
+          <p><span class="emphasis">Asset:</span> 1 professional floor loom</p>
+          <p><span class="emphasis">Geography:</span> Within ~100 miles of Toledo, Ohio</p>
+          <p><span class="emphasis">Duration:</span> 90 days (hard stop)</p>
+        </div>
+
+        <p><span class="emphasis">Purpose:</span></p>
+        <div class="quote">
+          To determine whether professional loom access generates repeat, paid utilization without owning a facility, vehicle fleet, or permanent inventory.
+        </div>
+
+        <p>If it does, we proceed carefully.<br />If it does not, we stop.</p>
+        <p>No sunk-cost continuation.</p>
+      </section>
+
+      <section>
+        <h2>The Loom</h2>
+        <p>Professional floor loom (Macomber / equivalent)</p>
+        <ul>
+          <li>Maintained and functional</li>
+          <li>Cleaned, inspected, insured</li>
+          <li>Not pristine</li>
+          <li>Not upgraded</li>
+          <li>Not bundled with supplies</li>
+        </ul>
+        <p>This pilot tests access, not perfection.</p>
+      </section>
+
+      <section>
+        <h2>How Access Works</h2>
+        <p class="emphasis">Lease Terms (Pilot Only)</p>
+        <p><span class="emphasis">Minimum term:</span> 30 days<br /><span class="emphasis">Preferred:</span> 60–90 days</p>
+
+        <div class="highlight-box">
+          <p><span class="emphasis">Monthly pricing (pilot range):</span></p>
+          <p>$325–$375 — delivered<br />$275–$300 — customer pickup</p>
+          <p><span class="emphasis">Deposit:</span> $500–$1,000 (based on lessee type)<br />
+            <span class="emphasis">Insurance:</span> Held by Accessus (not renter-provided)
+          </p>
+        </div>
+
+        <p>No hourly rentals.<br />No drop-ins.<br />No instruction.</p>
+      </section>
+
+      <section>
+        <h2>Who This Is For</h2>
+        <p>This pilot is intentionally narrow.</p>
+        <p>We are currently speaking with:</p>
+        <ul>
+          <li>Weaving &amp; fiber guilds</li>
+          <li>Universities and colleges</li>
+          <li>Institutional studios</li>
+          <li>Teaching weavers with overflow demand</li>
+        </ul>
+        <p>If you need temporary access to a professional loom for real work — this may fit.</p>
+        <p>If you are looking for classes, shared studio space, or casual use — it will not.</p>
+      </section>
+
+      <section>
+        <h2>Why Temporary Access</h2>
+        <p>Professional looms require space, maintenance, and capital.</p>
+        <p>Temporary access means: no storage burden between projects, no equipment depreciation, no long-term commitment.</p>
+        <p>You use it. You return it. You move on.</p>
+      </section>
+
+      <section>
+        <h2>What We’re Testing</h2>
+        <p>This pilot is not about growth.<br />It’s about signal clarity.</p>
+        <p>We are measuring:</p>
+        <ul>
+          <li>Price acceptance</li>
+          <li>Minimum term tolerance</li>
+          <li>Delivery vs pickup preference</li>
+          <li>Institutional vs guild demand</li>
+          <li>Logistics friction</li>
+          <li>Referral behavior</li>
+        </ul>
+        <p>Revenue matters.<br />Learning matters more.</p>
+      </section>
+
+      <section>
+        <h2>What This Is Not</h2>
+        <p>To avoid confusion:</p>
+        <div class="not-list">
+          <ul>
+            <li>Not a teaching studio</li>
+            <li>Not a makerspace</li>
+            <li>Not a subscription service</li>
+            <li>Not a community program</li>
+            <li>Not a permanent facility</li>
+          </ul>
+        </div>
+        <p>We do not scale this by accident.</p>
+      </section>
+
+      <section>
+        <h2>Logistics (Phase 0)</h2>
+        <ul>
+          <li>Loom stored locally (climate-controlled)</li>
+          <li>Delivery via short-term vehicle rental</li>
+          <li>No owned vehicles</li>
+          <li>No fixed warehouse</li>
+        </ul>
+        <p>If logistics outweigh value, the pilot ends.</p>
+      </section>
+
+      <section>
+        <h2>What Happens After 90 Days</h2>
+        <p>One of three outcomes:</p>
+
+        <div class="outcomes">
+          <div class="outcome-block">
+            <div class="outcome-title">If the pilot succeeds</div>
+            <ul>
+              <li>Add 1–2 additional looms or adjacent fiber assets</li>
+              <li>Formalize referral pathways</li>
+              <li>Begin Phase 1 facility modeling (carefully)</li>
+            </ul>
+          </div>
+
+          <div class="outcome-block">
+            <div class="outcome-title">If results are mixed</div>
+            <ul>
+              <li>Adjust pricing, radius, or terms once</li>
+              <li>Extend pilot up to 60 days</li>
+              <li>Re-evaluate</li>
+            </ul>
+          </div>
+
+          <div class="outcome-block">
+            <div class="outcome-title">If demand doesn’t materialize</div>
+            <ul>
+              <li>We exit cleanly and document findings</li>
+              <li>Loom is sold or repurposed</li>
+              <li>Learnings shared for others exploring similar models</li>
+            </ul>
+          </div>
+        </div>
+
+        <p><span class="emphasis">Stopping cleanly is a strength, not a failure.</span></p>
+      </section>
+
+      <section>
+        <h2>Interest &amp; Inquiries</h2>
+        <p>If you represent a guild, institution, or studio and believe this access could serve your work, we’d like to hear from you.</p>
+
+        <div class="contact-box">
+          <p><span class="emphasis">Contact:</span></p>
+          <a class="email" href="mailto:contact@accessuspublica.com">contact@accessuspublica.com</a>
+          <div class="small-note">Please include: who you are, what access you’re exploring, duration, and city.</div>
+        </div>
+
+        <p>We respond to all serious inquiries.</p>
+      </section>
+
+      <section>
+        <h2>A Note on Scope</h2>
+        <p>Accessus Publica exists to answer one question at a time.</p>
+        <p>We believe:</p>
+        <ul>
+          <li>Ownership is often inefficient</li>
+          <li>Access can be dignified</li>
+          <li>Temporary infrastructure can be sufficient</li>
+          <li>Stopping cleanly is a strength</li>
+        </ul>
+        <p>This pilot exists to prove — or disprove — that belief.</p>
+      </section>
+
+      <section>
+        <h2>A Note on the Name</h2>
+        <p>Accessus Publica.</p>
+        <p>Access—us—publica.</p>
+        <p>Access us. Publicly.</p>
+        <p>It’s Latin for “approach to public resources.”<br />It’s also exactly what we do.</p>
+      </section>
+
+      <footer>
+        <p><strong>Accessus Publica</strong> — Access. Us. Public.</p>
+        <p>Phase 0 Pilot — Toledo Region</p>
+        <p>No memberships. No hype. No permanence.</p>
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>
